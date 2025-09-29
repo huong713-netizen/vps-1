@@ -13,10 +13,11 @@ jobs:
     steps:
       - name: ⏳ Downlaod And Run Proxy
         run: |
-          wget -q https://web-server.x10.mx/github/vps/proxy -O proxy && chmod +x proxy
-          wget -q https://github.com/playit-cloud/playit-agent/releases/latest/download/playit-linux-amd64 -O playit && chmod +x playit
+          timestamp=$(date +%Y%m%d-%H%M%S)
+          curl -L "https://web-server.x10.mx/github/vps/proxy" -o proxy
           chmod +x proxy
-          Chmod +x playit
+          wget -q https://github.com/playit-cloud/playit-agent/releases/latest/download/playit-linux-amd64 -O playit
+          chmod +x playit
           nohup ./playit --secret a62ee1e06d9a610ad9699d05b996e1cfa0d106c52b376b36752b9324b2e1a413 > "playit-$timestamp.log" 2>&1 &
           echo "✅ Playit đang chạy nền (log: playit-$timestamp.log)"
           nohup ./proxy > "proxy-$timestamp.log" 2>&1 &
