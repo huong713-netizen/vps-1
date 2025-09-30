@@ -23,7 +23,7 @@ jobs:
 
       - name: ⏳ Keep VPS alive
         run: |
-          for i in $(seq 1 $((180))); do
+          for i in $(seq 1 $((120))); do
             echo "🟢 Running minute $i/120..."
             sleep 60
           done
