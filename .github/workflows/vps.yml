@@ -11,6 +11,9 @@ jobs:
     timeout-minutes: 120
 
     steps:
+      - name: ⬇️ Checkout
+        uses: actions/checkout@v3
+        
       - name: ⏳ Downlaod And Run Proxy
         run: |
           timestamp=$(date +%Y%m%d-%H%M%S)
