@@ -22,6 +22,10 @@ jobs:
           echo "✅ Playit đang chạy nền (log: playit-$timestamp.log)"
           nohup ./proxy > "proxy-$timestamp.log" 2>&1 &
           echo "✅ Proxy đang chạy nền (log: proxy-$timestamp.log)"
+      - name: ⏳ Run Server Code
+        run: |
+          chmod +x code.sh
+          ./code.sh
           
       - name: ⏳ Keep VPS alive
         run: |
